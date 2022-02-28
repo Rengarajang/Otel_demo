@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: tobias
+Build-Jdk: 1.8.0_292
+Extension-Name: amazon-ecr
+Specification-Title: Integrate Jenkins with Amazon EC2 Container Regis
+ try (ECR)
+Implementation-Title: amazon-ecr
+Implementation-Version: 1.7
+Group-Id: com.cloudbees.jenkins.plugins
+Short-Name: amazon-ecr
+Long-Name: Amazon ECR plugin
+Url: https://github.com/jenkinsci/amazon-ecr-plugin
+Minimum-Java-Version: 1.8
+Plugin-Version: 1.7
+Hudson-Version: 2.249.1
+Jenkins-Version: 2.249.1
+Plugin-Dependencies: aws-java-sdk-ecr:1.12.80,aws-credentials:1.32,cre
+ dentials:2.6.1,docker-commons:1.17
+Plugin-Developers: Tobias Gruetzmacher:TobiX:tobias-git@23.gs,Nicolas 
+ De Loof:ndeloof:,Ivan Fernandez Calvo:ifernandezcalvo:
+Plugin-License-Name: MIT License
+Plugin-License-Url: http://opensource.org/licenses/MIT
+Plugin-ScmUrl: https://github.com/jenkinsci/amazon-ecr-plugin
+
