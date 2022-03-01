@@ -33,9 +33,10 @@ dockerImage = ''
         }  
 	stage('Building image') {
 	    steps{
-                script {
-                dockerImage = sudo docker.build registry + ":$BUILD_NUMBER"
-                 }
+		sh """
+                cd ${WORKSPACE}/boot-otel-tempo-api/
+                docker build -t "$registry:$BUILD_NUMBER"
+                """    
              }
          }
 	stage('Publish image') {
