@@ -35,7 +35,7 @@ dockerImage = ''
 	    steps{
 		sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
-                docker build -t "$registry:$BUILD_NUMBER"
+                docker build -t "$registry:$BUILD_NUMBER" .
                 """    
              }
          }
