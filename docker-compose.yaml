@@ -142,7 +142,7 @@ services:
       - loki
   jenkins:
     image: rengarajang/jenkins-ci:v1
-    #privileged: true
+    privileged: true
     restart: "unless-stopped"
     ports:
       - "9080:8080"
