@@ -1,7 +1,9 @@
 pipeline {
 	environment {	
-registry = "785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo"
-registryCredential = 'aws-access'
+	registry = "rengarajang/otel-demo"
+/*registry = "785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo"
+registryCredential = 'aws-access' */
+registryCredential = 'dockerhub-id'		
 dockerImage = ''
 	}	
 	
