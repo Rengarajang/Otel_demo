@@ -1,7 +1,7 @@
 pipeline {
 	environment {	
 registry = "785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo"
-registryCredential = 'AWSaccess'
+registryCredential = 'aws-access'
 dockerImage = ''
 	}	
 	
