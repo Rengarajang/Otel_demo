@@ -18,7 +18,7 @@ dockerImage = ''
 		"""
             }
         }
-  /**      stage('Test') {
+     stage('Test') {
             steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
@@ -32,7 +32,7 @@ dockerImage = ''
                 sudo mvn sonar:sonar
                 """
             }
-        }   **/
+        }   
 	stage('Building image') {
 	    steps{
 		sh """
@@ -41,15 +41,15 @@ dockerImage = ''
                 """    
              }
          }
-	stage('Publish image') {
-	    steps{
-	      script {
-	      sudo docker.withRegistry( '', registryCredential ) {
-	     dockerImage.push()
-	 	  }
-	       }
-	    }
-	}	    
+  	stage('Publish image to Docker Hub') {
+          
+            steps {
+        	withDockerRegistry([ credentialsId: "dockerhub-id", url: "" ]) {
+          	sh  'sudo docker push "$registry:$BUILD_NUMBER"' 
+        }
+                  
+          }
+        }	    
 	    
     }
 }
