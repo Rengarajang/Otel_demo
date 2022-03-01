@@ -34,14 +34,14 @@ dockerImage = ''
 	stage('Building image') {
 	    steps{
                 script {
-                dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                dockerImage = sudo docker.build registry + ":$BUILD_NUMBER"
                  }
              }
          }
 	stage('Publish image') {
 	    steps{
 	      script {
-	      docker.withRegistry( '', registryCredential ) {
+	      sudo docker.withRegistry( '', registryCredential ) {
 	     dockerImage.push()
 	 	  }
 	       }
