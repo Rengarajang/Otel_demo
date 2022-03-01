@@ -14,14 +14,14 @@ pipeline {
             steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
-                mvn compile test"""
+                sudo mvn compile test"""
             }
         }
        stage('Sonar') {
             steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
-                mvn sonar:sonar
+                sudo mvn sonar:sonar
                 """
             }
         }  
