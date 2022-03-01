@@ -1,9 +1,4 @@
 pipeline {
-	environment {	
-registry = "rengarajang/otel-demo-app"
-registryCredential = 'dockerhub_id'
-dockerImage = ''
-	}	
   agent any
 
     stages {
@@ -30,12 +25,5 @@ dockerImage = ''
                 """
             }
         }  
-	stage('Building image') {
-	    steps{
-                script {
-                dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                 }
-             }
-         }
     }
 }
