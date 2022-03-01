@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
-                mvn clean install -DskipTests
+                sudo mvn install -DskipTests
 		"""
             }
         }
