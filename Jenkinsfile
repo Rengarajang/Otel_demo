@@ -16,7 +16,7 @@ dockerImage = ''
 		"""
             }
         }
-        stage('Test') {
+  /**      stage('Test') {
             steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
@@ -30,7 +30,7 @@ dockerImage = ''
                 sudo mvn sonar:sonar
                 """
             }
-        }  
+        }  **/
 	stage('Building image') {
 	    steps{
                 script {
