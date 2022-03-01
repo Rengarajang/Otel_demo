@@ -1,9 +1,7 @@
 pipeline {
 	environment {	
-	registry = "rengarajang/otel-demo"
-/*registry = "785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo"
-registryCredential = 'aws-access' */
-registryCredential = 'dockerhub-id'		
+registry = "785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo"
+registryCredential = 'aws-access' 		
 dockerImage = ''
 	}	
 	
@@ -42,11 +40,10 @@ dockerImage = ''
              }
          }
   	stage('Publish image to Docker Hub') {
-          
             steps {
-        	withDockerRegistry([ credentialsId: "dockerhub-id", url: "" ]) {
-          	sh  'sudo docker push "$registry:$BUILD_NUMBER"' 
-        }
+		docker.withRegistry("$registry", "ecr:us-east-1:credential-id") {
+  		docker.image("your-image-name").push()
+		}
                   
           }
         }	    
