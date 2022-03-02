@@ -16,7 +16,7 @@ pipeline {
 		"""
             }
         }
- /**    stage('Test') {
+    stage('Test') {
             steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
@@ -30,7 +30,7 @@ pipeline {
                 sudo mvn sonar:sonar
                 """
             }
-        }   **/
+        }   
 	stage('Building image') {
       	  steps {
         	script {
@@ -38,13 +38,13 @@ pipeline {
         	}
       		}
    	 }
-	stage('Push Image') {
+	/*stage('Push Image') {
      	  steps {   
 		
 		sh "eval $(aws ecr get-login --region us-east-1 --no-include-email | sed 's|https://||')"
 		sh docker push 85131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:$BUILD_NUMBER'         
 	    }
-        }
+        }  */
   
 	    
     }
