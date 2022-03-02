@@ -41,7 +41,7 @@ dockerImage = ''
          }
   	stage('Publish image to Docker Hub') {
             steps {
-		    docker.withRegistry('https://$registry', ecr:us-east-1:$registryCredential') {
+		    docker.withRegistry('https://$registry','ecr:us-east-1:$registryCredential') {
 		    def myImage=docker.build('us-east-1')
 		    myImage.push('$BUILD_NUMBER')
 		}     
