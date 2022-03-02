@@ -42,12 +42,11 @@ pipeline {
 	stage('Push Image to ECR') {
      	  steps{   
          	script {
-            docker.withRegistry( 'https://785131266845.dkr.ecr.us-east-1.amazonaws.com', "ecr:us-east-1:$registryCredential" ) {
-            docker.image("otel-demo"). push('$BUILD_NUMBER')
+		sh 'aws ecr get-login-password --region us-east-1 | docker -D login --username AWS --password-stdin 85131266845.dkr.ecr.us-east-1.amazonaws.com'
+		sh 'docker push 85131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:$BUILD_NUMBER'
             }
         }
       }
-    }
 	    
     }
 }
