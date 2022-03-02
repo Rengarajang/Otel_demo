@@ -44,7 +44,7 @@ dockerImage = ''
 	      script {
 		    docker.withRegistry(
 		      'https://785131266845.dkr.ecr.us-east-1.amazonaws.com',
-		      'ecr:us-east-1:$registryCredential') {
+		      'ecr:otel-demo:$registryCredential') {
 		      def myImage=docker.build('otel-demo')
 		      myImage.push('$BUILD_NUMBER')
 		}
