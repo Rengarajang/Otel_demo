@@ -1,6 +1,6 @@
 pipeline {
 	environment {
-        registry = "85131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo"
+        registry = "785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo"
         registryCredential = 'aws-access'
         dockerImage = ''
 	}	
@@ -38,13 +38,13 @@ pipeline {
         	}
       		}
    	 }
-	/*stage('Push Image') {
+	stage('Push Image') {
      	  steps {   
 		
-		sh "eval $(aws ecr get-login --region us-east-1 --no-include-email | sed 's|https://||')"
-		sh docker push 85131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:$BUILD_NUMBER'         
+		sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 785131266845.dkr.ecr.us-east-1.amazonaws.com"
+		sh docker push 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:$BUILD_NUMBER'         
 	    }
-        }  */
+        }  
   
 	    
     }
