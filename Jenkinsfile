@@ -48,6 +48,8 @@ dockerImage = ''
 		docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_REPOSITORY:$BUILD_NUMBER
 		track_error $? "ECR image push"
 		"""
+	    }
+	}
 	    
     }
 }
