@@ -45,8 +45,7 @@ dockerImage = ''
             steps {
 		  sh """
 		aws ecr get-login-password --region $AWS_REGION | docker -D login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
-		docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_REPOSITORY:$BUILD_NUMBER
-		track_error $? "ECR image push"
+		sudo docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$AWS_REPOSITORY:$BUILD_NUMBER
 		"""
 	    }
 	}
