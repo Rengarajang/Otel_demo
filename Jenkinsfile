@@ -42,7 +42,7 @@ pipeline {
      	  steps {   
 		
 		sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 785131266845.dkr.ecr.us-east-1.amazonaws.com"
-		sh docker push 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:$BUILD_NUMBER'         
+		sh "docker push 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:$BUILD_NUMBER"         
 	    }
         }  
   
