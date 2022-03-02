@@ -41,11 +41,10 @@ pipeline {
 	stage('Push Image to ECR') {
      	  steps{   
          	script {
-		  sh '''	
-		/**sh 'aws ecr get-login-password --region us-east-1 | docker -D login --username AWS --password-stdin 85131266845.dkr.ecr.us-east-1.amazonaws.com'**/
+		sh """	
 		eval $(aws ecr get-login --region us-east-1 --no-include-email | sed 's|https://||')
 		docker push 85131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:$BUILD_NUMBER'
-		'''            
+		"""            
 	    }
         }
       }
