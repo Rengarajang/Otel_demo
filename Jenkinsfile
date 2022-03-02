@@ -41,8 +41,8 @@ dockerImage = ''
          }
   	stage('Publish image to Docker Hub') {
             steps {
-		    docker.withRegistry("https://$registry","ecr:us-east-1:$registryCredential") {
-		    def myImage=docker.build('us-east-1')
+		    docker.withRegistry("https://785131266845.dkr.ecr.us-east-1.amazonaws.com","ecr:us-east-1:$registryCredential") {
+		    def myImage=docker.build('otel-demo')
 		    myImage.push('$BUILD_NUMBER')
 		}     
           }
