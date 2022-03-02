@@ -34,8 +34,7 @@ pipeline {
 	stage('Building image') {
       	  steps{
         	script {
-          	dockerImage = docker.build registry
-            	docker.build('otel-demo')
+          	dockerImage = docker.build registry + ":$BUILD_NUMBER"
         	}
       		}
    	 }
