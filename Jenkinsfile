@@ -55,7 +55,7 @@ pipeline {
 	
 	stage('deploy App') {
          steps {	    
-	  sh 'docker run -d -p 8080:8080 -e PROVIDER1_URL_BASE=http://boot-otel-tempo-provider1:8090 -v ${WORKSPACE}/Ot-Pipeline/data/logs:/apps/logs --name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
+	  sh 'docker run -d -p 9090:8080 -e PROVIDER1_URL_BASE=http://boot-otel-tempo-provider1:8090 -v ${WORKSPACE}/Ot-Pipeline/data/logs:/apps/logs --name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
 	   }
 	}
 
