@@ -63,7 +63,7 @@
 	                <argLine>
 	                    -javaagent:../boot-otel-tempo-docker/agent/opentelemetry-javaagent-all.jar 
 	                    -Dotel.trace.exporter=jaeger 
-	                    -Dotel.exporter.jaeger.endpoint=172.31.6.50:14250  
+	                    -Dotel.exporter.jaeger.endpoint=tempo:14250  
 	                    -Dotel.resource.attributes=service.name=${project.artifactId} 
 	                    -Dotel.javaagent.debug=false 
 	                    -Dotel.metrics.exporter=none
