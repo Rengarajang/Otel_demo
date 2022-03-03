@@ -81,16 +81,16 @@ services:
       - tempo
       - provider1-db
 
-  boot-otel-tempo-api:
-    image: "mnadeem/boot-otel-tempo-api:0.0.1-SNAPSHOT"
-    ports:
-      - "8080:8080"
-    environment:
-      PROVIDER1_URL_BASE: "http://boot-otel-tempo-provider1:8090"
-    volumes:
-      - ./data/logs:/app/logs
-    depends_on:
-      - boot-otel-tempo-provider1
+#  boot-otel-tempo-api:
+#    image: "mnadeem/boot-otel-tempo-api:0.0.1-SNAPSHOT"
+#    ports:
+#      - "8080:8080"
+#    environment:
+#      PROVIDER1_URL_BASE: "http://boot-otel-tempo-provider1:8090"
+#    volumes:
+#      - ./data/logs:/app/logs
+#    depends_on:
+#      - boot-otel-tempo-provider1
 
   promtail:
     image: grafana/promtail:2.2.0
