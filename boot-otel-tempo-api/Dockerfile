@@ -14,9 +14,10 @@ COPY ./target/${APP_NAME}-*.jar ${APP_HOME}/${APP_NAME}.jar
 EXPOSE 8080
 # OpenTelemetry:
 # https://github.com/open-telemetry/opentelemetry-java-instrumentation
+#  -Dotel.exporter.jaeger.endpoint=http://tempo:14250  -replaced with host private IP
 ENV JAVA_OPTS "${JAVA_OPTS} \
   -Dotel.traces.exporter=jaeger \
-  -Dotel.exporter.jaeger.endpoint=http://tempo:14250 \
+  -Dotel.exporter.jaeger.endpoint=http://172.31.6.50:14250 \
   -Dotel.metrics.exporter=none \
   -Dotel.resource.attributes="service.name=${APP_NAME}" \
   -Dotel.javaagent.debug=false \
