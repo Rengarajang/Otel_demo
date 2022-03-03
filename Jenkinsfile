@@ -55,7 +55,7 @@ pipeline {
 	
 	stage('deploy App') {
          steps {	    
-	  sh 'sudo docker run -d --privileged --pid=host --network otel_demo_default -p 9095:8080 -e PROVIDER1_URL_BASE=http://172.31.6.50:8090 --name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
+	  sh 'sudo docker run -d --privileged --pid=host --network otel_demo_default -p 9095:8080 -e PROVIDER1_URL_BASE=http://172.31.6.50:8090 -v ${WORKSPACE}/data/logs:/apps/logs--name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
 	   }
 	}
 
