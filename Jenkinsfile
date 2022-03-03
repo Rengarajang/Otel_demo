@@ -55,7 +55,7 @@ pipeline {
 	
 	stage('deploy App') {
          steps {	    
-	  sh 'sudo docker run -d --privileged -p 9090:8080 -e PROVIDER1_URL_BASE=http://boot-otel-tempo-provider1:8090 --name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
+	  sh 'sudo docker run -d --privileged --pid=host -p 9095:8080 -e PROVIDER1_URL_BASE=http://boot-otel-tempo-provider1:8090 --name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
 	   }
 	}
 
