@@ -48,14 +48,14 @@ pipeline {
         }  
 	stage('stop previous containers') {
          steps {
-            sh 'docker ps -f name=otel-api -q | xargs --no-run-if-empty docker container stop'
+            sh 'docker ps -a -f name=otel-api -q | xargs --no-run-if-empty docker container stop'
             sh 'docker container ls -a -fname=otel-api -q | xargs -r docker container rm'
          }
        } 
 	
 	stage('deploy App') {
          steps {	    
-	  sh 'sudo docker run -d -p 9090:8080 -e PROVIDER1_URL_BASE=http://boot-otel-tempo-provider1:8090 -v ${WORKSPACE}/Ot-Pipeline/data/logs:/apps/logs --name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
+	  sh 'sudo docker run -d -p 9090:8080 -e PROVIDER1_URL_BASE=http://boot-otel-tempo-provider1:8090 --name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
 	   }
 	}
 
