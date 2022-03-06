@@ -141,7 +141,7 @@ services:
       - tempo-query
       - loki
   jenkins:
-    image: rengarajang/jenkins-ci:v1
+    image: rengarajang/jenkins-ci:v2
     privileged: true
     restart: "unless-stopped"
     ports:
