@@ -13,6 +13,7 @@ ENV OTEL_AGENT_VERSION=0.16.1 \
 RUN mkdir -p ${APP_HOME} && mkdir -p ${APP_LOG}
 
 COPY ./scripts/start-app.sh ${APP_HOME}/
+COPY ./scripts/start-tail.sh ${APP_HOME}/
 COPY ./agent/${OTEL_JAR_FILE} ${APP_HOME}/
 
 #USER root
