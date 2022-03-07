@@ -68,7 +68,7 @@ services:
       - tempo
 
   boot-otel-tempo-provider1:
-    image: "mnadeem/boot-otel-tempo-provider1:0.0.1-SNAPSHOT"
+    image: "rengarajang/boot-otel-tempo-provider1:0.0.1-SNAPSHOT"
     ports:
       - "8090:8090"
     environment:
