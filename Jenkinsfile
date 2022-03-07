@@ -16,7 +16,7 @@ pipeline {
 		"""
             }
         }
-    stage('Test') {
+   /** stage('Test') {
             steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
@@ -29,11 +29,10 @@ pipeline {
                 cd ${WORKSPACE}/boot-otel-tempo-api/
                 sudo mvn sonar:sonar
                 """
-            }
+            } **/
         }   
 	stage('Building image') {
       	  steps {
-		sh 'cd ${WORKSPACE}/boot-otel-tempo-api/'
         	script {
           	/*dockerImage = docker.build registry + ":$BUILD_NUMBER" */
 		dockerImage = docker.build registry + ":latest"	
