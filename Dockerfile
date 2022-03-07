@@ -22,3 +22,5 @@ ENV JAVA_OPTS "${JAVA_OPTS} \
   -Dotel.resource.attributes="service.name=${APP_NAME}" \
   -Dotel.javaagent.debug=false \
   -javaagent:${APP_HOME}/${OTEL_AGENT_JAR_FILE}"
+#Promtail
+CMD ["sh", "/app/bin/start-tail.sh"]
