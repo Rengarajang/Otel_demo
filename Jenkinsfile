@@ -29,8 +29,8 @@ pipeline {
                 cd ${WORKSPACE}/boot-otel-tempo-api/
                 sudo mvn sonar:sonar
                 """
-            } **/
-        }   
+            } 
+        }   **/
 	stage('Building image') {
       	  steps {
         	script {
