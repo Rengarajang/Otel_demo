@@ -1,7 +1,7 @@
 FROM rengarajang/boot-otel-tempo-docker:0.0.1-SNAPSHOT
 ENV APP_NAME boot-otel-tempo-api
 
-COPY ./$APP_NAME}/target/${APP_NAME}-*.jar ${APP_HOME}/${APP_NAME}.jar
+COPY ./${APP_NAME}/target/${APP_NAME}-*.jar ${APP_HOME}/${APP_NAME}.jar
 COPY ./etc/promtail-app.yaml /etc/promtail-app.yaml
 
 # EXPOSE 5000 5001
