@@ -33,6 +33,7 @@ pipeline {
         }   
 	stage('Building image') {
       	  steps {
+		sh 'cd ${WORKSPACE}/boot-otel-tempo-api/'
         	script {
           	/*dockerImage = docker.build registry + ":$BUILD_NUMBER" */
 		dockerImage = docker.build registry + ":latest"	
