@@ -33,10 +33,10 @@ pipeline {
         }   **/
 	stage('Building image') {
       	  steps {
-        	script {
-          	/*dockerImage = docker.build registry + ":$BUILD_NUMBER" */
-		dockerImage = docker.build registry + ":latest"	
-        	}
+                sh """
+                cd ${WORKSPACE}/boot-otel-tempo-api/
+                sudo docker build -t 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:latest .
+                """
       		}
    	 }
 	stage('Push Image') {
