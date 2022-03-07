@@ -99,7 +99,6 @@ services:
       - ./etc/promtail-local.yaml:/etc/promtail/promtail-local.yaml
       - ./data/logs:/app/logs
     depends_on:
-      - boot-otel-tempo-api
       - loki
 
   volume_exporter:
