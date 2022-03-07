@@ -26,6 +26,3 @@ java $JAVA_OPTS \
  -Dspring.profiles.active=$SPRING_PROFILES_ACTIVE \
  -jar ${APP_HOME}/${APP_NAME}.jar \
  $PROG_ARGS
- 
- echo "Starting Promtail.."
- /usr/local/bin/promtail -config.file /etc/promtail-app.yaml
