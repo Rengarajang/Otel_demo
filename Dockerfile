@@ -2,7 +2,7 @@ FROM rengarajang/boot-otel-tempo-docker:0.0.1-SNAPSHOT
 ENV APP_NAME boot-otel-tempo-api
 
 COPY ./target/${APP_NAME}-*.jar ${APP_HOME}/${APP_NAME}.jar
-COPY ./${APP_NAME}/promtail-app.yaml /etc/promtail-app.yaml
+COPY ./boot-otel-tempo-api/promtail-app.yaml /etc/promtail-app.yaml
 
 # EXPOSE 5000 5001
 # ENV JAVA_TOOL_OPTIONS "-Dcom.sun.management.jmxremote.ssl=false \
