@@ -1,0 +1,19 @@
+#!/bin/bash
+echo "install Git"
+sudo yum update
+sudo yum install -y git
+sudo yum install -y java-1.8.0-openjdk-devel
+sudo cd /usr/local/src
+sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz -O /usr/local/
+sudo tar -xf /usr/local/apache-maven-3.8.4-bin.tar.gz
+sudo mv /usr/local/apache-maven-3.8.4/ usr/local/apache-maven
+sudo export M2_HOME=/usr/local/apache-maven
+sudo export PATH=${M2_HOME}/bin:${PATH}
+sudo ln -s /usr/local/apache-maven/bin/mvn /usr/local/bin/mvn
+sudo yum install -y docker
+sudo service docker start
+sudo service docker enable
+curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+sudo git clone https://github.com/Rengarajang/Otel_demo.git
