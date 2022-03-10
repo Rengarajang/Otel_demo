@@ -1,6 +1,7 @@
 pipeline {
 	environment {
-        registry = "785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo"
+        accountId = "785131266845"
+	ec2PrivateIP="172.31.76.146"
         registryCredential = 'aws-access'
         dockerImage = ''
 	}	
@@ -35,14 +36,14 @@ pipeline {
       	  steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
-                sudo docker build -t 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:latest .
+                sudo docker build -t ${accountId}.dkr.ecr.us-east-1.amazonaws.com/otel-demo:latest .
                 """
       		}
    	 }
 	stage('Push Image') {
      	  steps {   
-		  sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 785131266845.dkr.ecr.us-east-1.amazonaws.com"
-		  sh "docker push 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:latest"     
+		  sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${accountId}.dkr.ecr.us-east-1.amazonaws.com"
+		  sh "docker push ${accountId}.dkr.ecr.us-east-1.amazonaws.com/otel-demo:latest"     
 	    }
         }  
 	stage('stop previous containers') {
@@ -54,7 +55,7 @@ pipeline {
 	
 	stage('deploy App') {
          steps {	    
-	  sh 'sudo docker run -d --privileged --pid=host --network otel_demo_default -p 9095:8080 -e PROVIDER1_URL_BASE=http://172.31.6.50:8090 --name otel-api 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
+	  sh 'sudo docker run -d --privileged --pid=host --network otel_demo_default -p 9095:8080 -e PROVIDER1_URL_BASE=http://${ec2PrivateIP}:8090 --name otel-api ${accountId}.dkr.ecr.us-east-1.amazonaws.com/otel-demo' 
 	   }
 	}
 
