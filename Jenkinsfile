@@ -41,9 +41,10 @@ pipeline {
    	 }
 	stage('Push Image') {
      	  steps {   
-		
-		sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 785131266845.dkr.ecr.us-east-1.amazonaws.com"
-		sh "docker push 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:latest"         
+		  withAWS(credentials: 'aws-credentials', region: 'us-east-1') {
+		  sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 785131266845.dkr.ecr.us-east-1.amazonaws.com"
+		  sh "docker push 785131266845.dkr.ecr.us-east-1.amazonaws.com/otel-demo:latest"     
+		  }
 	    }
         }  
 	stage('stop previous containers') {
