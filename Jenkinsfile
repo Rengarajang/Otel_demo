@@ -17,7 +17,7 @@ pipeline {
 		"""
             }
         }
-   /** stage('Test') {
+    stage('Test') {
             steps {
                 sh """
                 cd ${WORKSPACE}/boot-otel-tempo-api/
@@ -31,7 +31,7 @@ pipeline {
                 sudo mvn sonar:sonar
                 """
             } 
-        }   **/
+        }   
 	stage('Building image') {
       	  steps {
                 sh """
