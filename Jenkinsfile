@@ -1,7 +1,7 @@
 pipeline {
 	environment {
         accountId = "785131266845"
-	ec2PrivateIP="172.31.76.146"
+	ec2PrivateIP="172.31.87.111"
         registryCredential = 'aws-access'
         dockerImage = ''
 	}	
