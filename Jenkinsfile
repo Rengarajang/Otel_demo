@@ -40,12 +40,12 @@ pipeline {
                 """
       		}
    	 }
-	stage('Push Image') {
-     	  steps {   
+/*	stage('Push Image') {
+    	  steps {   
 		  sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${accountId}.dkr.ecr.us-east-1.amazonaws.com"
 		  sh "docker push ${accountId}.dkr.ecr.us-east-1.amazonaws.com/otel-demo:latest"     
 	    }
-        }  
+        }  */ 
 	stage('stop previous containers') {
          steps {
             sh 'docker ps -a -f name=otel-api -q | xargs --no-run-if-empty docker container stop'
